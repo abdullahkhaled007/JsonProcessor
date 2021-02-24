@@ -1,2 +1,2 @@
 # jsonProcessor
-First attempt at extracting data from Json using data visualisation in java 
+First attempt at extracting data from Json using JFreeChart to visualisation data
