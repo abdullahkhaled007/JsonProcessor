@@ -24,5 +24,4 @@ public class CVEDatasetProcessor {
 		XYDataset dataSet = util.getDataset(transformer.transformJson(filePath));
 		chartGenerator.buildChart(dataSet);		
 	}
-
 }

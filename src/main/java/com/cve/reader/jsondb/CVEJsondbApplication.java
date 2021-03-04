@@ -19,10 +19,20 @@ public class CVEJsondbApplication {
         SpringApplication.run(CVEJsondbApplication.class, args);
         System.setProperty("java.awt.headless", "false");
         SwingUtilities.invokeLater(() -> {
-        	CVEDatasetProcessor jsonProcessor = null;
+            CVEDatasetProcessor jsonProcessor;
             try {
-            	TimeSeriesChartGenerator chartGen = new TimeSeriesChartGenerator("Impact Occurrences", "Date", "Occurrences", new Color(255, 228, 196), 640, 480);
-            	jsonProcessor = new CVEDatasetProcessor(new CVEDatasetUtil(), new JSONFileTransformer<CveListObject>(CveListObject.class), chartGen, "src/main/resources/json/CVE.json");
+                TimeSeriesChartGenerator chartGen = new TimeSeriesChartGenerator(
+                        "Impact Occurrences",
+                        "Date",
+                        "Occurrences",
+                        new Color(255, 228, 196),
+                        640,
+                        480);
+                jsonProcessor = new CVEDatasetProcessor(
+                        new CVEDatasetUtil(),
+                        new JSONFileTransformer<>(CveListObject.class),
+                        chartGen,
+                        "src/main/resources/json/CVE.json");
                 jsonProcessor.process();
             } catch (Exception e) {
                 e.printStackTrace();

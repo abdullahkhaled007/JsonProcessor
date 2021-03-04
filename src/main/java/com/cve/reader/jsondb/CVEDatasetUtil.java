@@ -24,11 +24,14 @@ public class CVEDatasetUtil {
 		timeSeriesCollection.addSeries(timeSeriesLow);
 		timeSeriesCollection.addSeries(timeSeriesMedium);
 		timeSeriesCollection.addSeries(timeSeriesHigh);
-		timeSeriesCollection.addSeries(timeSeriesCritical);       
+		timeSeriesCollection.addSeries(timeSeriesCritical);
+
         int low = 1;
         int medium = 1;
         int high = 1;
         int critical = 1;
+        int counter = 0;
+
         for (CveObject current : list) {
         	 LocalDateTime publishDate = current.getPublishedDate();
             try {
@@ -47,14 +50,10 @@ public class CVEDatasetUtil {
                         break;
                 }
             } catch (NullPointerException e) {
-                System.out.println("Could not retrieve severity ");
+                counter++;
             }
         }
+        System.out.println("Could not retrieve severity for " + counter + " entries");
         return timeSeriesCollection;
     }
-
-
-
-
-
 }
