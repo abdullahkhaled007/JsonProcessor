@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class CveListObject {
     @JsonProperty
@@ -43,7 +44,40 @@ public class CveListObject {
         return CVE_Items;
     }
 
+    public void setCVE_data_type(String CVE_data_type) {
+        this.CVE_data_type = CVE_data_type;
+    }
 
+    public void setCVE_data_format(String CVE_data_format) {
+        this.CVE_data_format = CVE_data_format;
+    }
 
+    public void setCVE_data_version(double CVE_data_version) {
+        this.CVE_data_version = CVE_data_version;
+    }
+
+    public void setCVE_numberOfCVEs(int CVE_numberOfCVEs) {
+        this.CVE_numberOfCVEs = CVE_numberOfCVEs;
+    }
+
+    public void setCVE_time_stamp(Date CVE_time_stamp) {
+        this.CVE_time_stamp = CVE_time_stamp;
+    }
+
+    public void setCVE_Items(List<CveObject> CVE_Items) {
+        this.CVE_Items = CVE_Items;
+    }
+
+    @Override
+    public String toString() {
+        return "CveListObject{" +
+                "CVE_data_type='" + CVE_data_type + '\'' +
+                ", CVE_data_format='" + CVE_data_format + '\'' +
+                ", CVE_data_version=" + CVE_data_version +
+                ", CVE_numberOfCVEs=" + CVE_numberOfCVEs +
+                ", CVE_time_stamp=" + CVE_time_stamp +
+                ", CVE_Items=" + CVE_Items +
+                '}';
+    }
 }
 
